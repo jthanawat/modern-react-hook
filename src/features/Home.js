@@ -1,0 +1,39 @@
+import React from "react";
+// import data from "../app/data";
+// import axios from "axios";
+import PropTypes from 'prop-types'
+import styled from "styled-components";
+
+import Product from "./Product/index";
+// import AddForm from "./Product/AddForm";
+
+const Home = ({className, products}) => {
+
+
+  return (
+    <div className={className}>
+      <h1>New Products</h1>
+        <ul className="Home__products">
+          {products.map((product) => (
+            <Product key={product.id} item={product} />
+          ))}
+        </ul>
+    </div>
+  );
+};
+
+Home.propTypes = {
+    className: PropTypes.string.isRequired,
+}
+
+export default styled(Home)`
+  .Home__products {
+    display: flex;
+    flex-wrap: wrap;
+    
+    list-style-type: none;
+
+    padding: 0;
+    margin: 0 -12px;
+  }
+`;
